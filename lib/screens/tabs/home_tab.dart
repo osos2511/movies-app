@@ -22,7 +22,7 @@ List<Results>? results;
         autoPlayInterval: Duration(seconds: 3), // المدة الزمنية بين التمريرات
         autoPlayAnimationDuration: Duration(milliseconds: 800), // مدة الحركة
         viewportFraction: 0.8, // حجم العنصر المرئي نسبةً إلى الشاشة
-      ), items: [],
+      ), items: const [],
       // items: results.map((imageUrl) {
       //   return Builder(
       //     builder: (BuildContext context) {
