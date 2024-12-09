@@ -24,6 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: ColorsManager.black,
         bottomNavigationBar:
         BottomNavigationBar(
           selectedItemColor: Color(0xFFFFBB3B),
@@ -36,10 +37,10 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
           items: [
-            BottomNavigationBarItem(backgroundColor:ColorsManager.color,icon: Icon(Icons.home),label: "home"),
-            BottomNavigationBarItem(backgroundColor:ColorsManager.color,icon: Icon(Icons.search),label: "search"),
-            BottomNavigationBarItem(backgroundColor:ColorsManager.color,icon: Icon(Icons.movie_sharp),label: "browse"),
-            BottomNavigationBarItem(backgroundColor:ColorsManager.color,icon: Icon(Icons.bookmarks),label: "watchlist"),
+            BottomNavigationBarItem(backgroundColor:ColorsManager.black,icon: Icon(Icons.home),label: "home"),
+            BottomNavigationBarItem(backgroundColor:ColorsManager.black,icon: Icon(Icons.search),label: "search"),
+            BottomNavigationBarItem(backgroundColor:ColorsManager.black,icon: Icon(Icons.movie_sharp),label: "browse"),
+            BottomNavigationBarItem(backgroundColor:ColorsManager.black,icon: Icon(Icons.bookmarks),label: "watchlist"),
 
           ],
 
