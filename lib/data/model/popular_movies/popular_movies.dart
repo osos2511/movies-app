@@ -1,8 +1,8 @@
-import 'results.dart';
+import 'popular_results.dart';
 
 class PopularMovies {
   num? page;
-  List<Results>? results;
+  List<PopularResults>? results;
   num? totalPages;
   num? totalResults;
   bool? success;
@@ -23,7 +23,7 @@ class PopularMovies {
     if (json['results'] != null) {
       results = [];
       json['results'].forEach((v) {
-        results?.add(Results.fromJson(v));
+        results?.add(PopularResults.fromJson(v));
       });
     }
     totalPages = json['total_pages'];

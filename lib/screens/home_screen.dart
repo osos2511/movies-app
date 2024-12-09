@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
 import 'package:movies_app/screens/tabs/browse_tab.dart';
-import 'package:movies_app/screens/tabs/home_tab.dart';
+import 'package:movies_app/screens/tabs/home_tab/home_tab.dart';
 import 'package:movies_app/screens/tabs/search_tab.dart';
 import 'package:movies_app/screens/tabs/watch_list_tab.dart';
 
