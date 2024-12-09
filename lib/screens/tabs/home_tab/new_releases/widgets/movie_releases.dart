@@ -32,7 +32,7 @@ class MovieReleases extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.bookmark_add,
-                      color: Colors.white,
+                      color: Colors.grey,
                     ),
                   ),
                 ),
