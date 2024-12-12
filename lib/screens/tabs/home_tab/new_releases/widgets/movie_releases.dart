@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movies_app/core/utils/assets_manager.dart';
 
 class MovieReleases extends StatelessWidget {
@@ -10,7 +11,10 @@ class MovieReleases extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Container(
-        color: Colors.blue,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(15),
+        ),
+
         width: 96.87.w,
         height: 127.74.h,
         child: Align(
@@ -28,14 +32,7 @@ class MovieReleases extends StatelessWidget {
                 ),
                 Align(
                   alignment: Alignment.topLeft,
-                  child: IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.bookmark_add,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ),
+                  child: SvgPicture.asset(AssetsManager.bookmark)),
               ],
             ),
           ),

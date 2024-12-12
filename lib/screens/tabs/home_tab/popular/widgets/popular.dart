@@ -1,27 +1,28 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:movies_app/core/utils/colors_manager.dart';
+import 'package:movies_app/data/api/api_manager/api_manager.dart';
 import '../../../../../core/utils/assets_manager.dart';
-import '../../../../../data/model/popular_movies/popular_results.dart';
+import '../../../../../data/model/popular_movies/popular_movie.dart';
 
 class Popular extends StatelessWidget {
    Popular({super.key,  this.popularResults});
-  PopularResults? popularResults;
+   PopularMovie? popularResults;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-
         Container(
           color: ColorsManager.black,
           width: 412.w,
           height: 289.h,
           child: Stack(
             children: [
-            Image.asset(
-            AssetsManager.poster,
+            Image.network(
+            ApiManager.baseImage+popularResults!.backdropPath!,
              fit: BoxFit.cover,
               width: 412.w,
               height: 217.h,
@@ -34,48 +35,42 @@ class Popular extends StatelessWidget {
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Text(
-                        //popularResults?.title??'',
-                        "Dora and the lost city of gold",
-                        style: TextStyle(fontSize: 14, color: ColorsManager.white),
+                        popularResults?.title??'',
+                        style: const TextStyle(fontSize: 14, color: ColorsManager.white),
                       ),
                     ),
                     Align(
                       alignment: Alignment.bottomRight,
                       child: Text(
-                        //popularResults?.releaseDate??'',
-                        "2019  PG-13  2h 7m",
-                        style: TextStyle(fontSize: 10, color: ColorsManager.gray),
+                      popularResults?.releaseDate??'',
+
+                        style: const TextStyle(fontSize: 10, color: ColorsManager.gray),
                       ),
                     ),
                   ],
                 ),
               ),
 
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: Container(
-                  color: Colors.grey,
-                  height: 199.h,
-                  width: 129.w,
-                  child: Stack(
-                    children: [
-                      Positioned.fill(
-                        child: Image(
-                          image: AssetImage(AssetsManager.popular),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    color: Colors.grey,
+                    height: 199.h,
+                    width: 129.w,
+                    child: Stack(
+                      children: [
+                        Image(
+                          image: NetworkImage(ApiManager.baseImage+popularResults!.posterPath!),
                           fit: BoxFit.cover,
                         ),
-                      ),
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon:  Icon(
-                            Icons.bookmark_add,
-                            color: ColorsManager.gray,
-                          ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: SvgPicture.asset(AssetsManager.bookmark),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -120,8 +115,6 @@ class Popular extends StatelessWidget {
       //   aspectRatio: 16 / 9,
       // ),
         ),
-
-
       ]);
   }
 }
