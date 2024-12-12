@@ -45,7 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
 
         ),
-        body: tabs[selectedIndex]
+        body: IndexedStack(
+          index: selectedIndex,
+          children: tabs,
+        ),
 
       ),
     );

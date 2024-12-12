@@ -13,7 +13,7 @@ class PopularView extends StatefulWidget {
 }
 
 class _PopularViewState extends State<PopularView> {
-  late PopularViewModel viewModel;
+  var viewModel=PopularViewModel();
   @override
   void initState() {
     viewModel.getAllPopularMovies();
@@ -22,7 +22,7 @@ class _PopularViewState extends State<PopularView> {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<PopularViewModel>(
-      create: (BuildContext context) =>PopularViewModel(),
+      create: (BuildContext context) =>viewModel,
     child: Consumer(
         builder: (context, value, child){
       if(viewModel.isLoading){
