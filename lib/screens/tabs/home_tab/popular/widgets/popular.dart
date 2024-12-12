@@ -1,54 +1,81 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:movies_app/core/utils/colors_manager.dart';
+import 'package:movies_app/data/api/api_manager/api_manager.dart';
 import '../../../../../core/utils/assets_manager.dart';
-import '../../../../../data/model/popular_movies/popular_results.dart';
+import '../../../../../data/model/popular_movies/popular_movie.dart';
 
 class Popular extends StatelessWidget {
    Popular({super.key,  this.popularResults});
-  PopularResults? popularResults;
+   PopularMovie? popularResults;
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
-          width: double.infinity,
-          height: 500.h,
-          color: Colors.red,
-          child: Column(
+          color: ColorsManager.black,
+          width: 412.w,
+          height: 289.h,
+          child: Stack(
             children: [
-            Image.asset(
-            AssetsManager.splashLogo,
-            fit: BoxFit.cover,
+            Image.network(
+            ApiManager.baseImage+popularResults!.backdropPath!,
+             fit: BoxFit.cover,
+              width: 412.w,
+              height: 217.h,
           ),
-          Text(
-              popularResults?.title??'',
-              style: TextStyle(fontSize: 20, color: Colors.black),
-        ),
-        Text(
-          popularResults?.releaseDate??'',
-          style: TextStyle(fontSize: 20, color: Colors.black),
-        ),
-        Align(
-          alignment: Alignment.bottomLeft,
-          child: Container(
-            color: Colors.grey,
-            height: 210.h,
-            width: 130.w,
-            child: Stack(
-              children: [
-                const Image(image: AssetImage(AssetsManager.splashLogo)),
-                Align(
-                    alignment: Alignment.topLeft,
-                    child: IconButton(
-                        onPressed: () {},
-                        icon: const Icon(Icons.bookmark_add)))
-              ],
-            ),
-          ),
-        ),
-      ],
+              Padding(
+                padding:  REdgeInsets.symmetric(horizontal: 50.0 , vertical: 20),
+                child: Column(
+                 mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                        popularResults?.title??'',
+                        style: const TextStyle(fontSize: 14, color: ColorsManager.white),
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                      popularResults?.releaseDate??'',
+
+                        style: const TextStyle(fontSize: 10, color: ColorsManager.gray),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: Align(
+                  alignment: Alignment.bottomLeft,
+                  child: Container(
+                    color: Colors.grey,
+                    height: 199.h,
+                    width: 129.w,
+                    child: Stack(
+                      children: [
+                        Image(
+                          image: NetworkImage(ApiManager.baseImage+popularResults!.posterPath!),
+                          fit: BoxFit.cover,
+                        ),
+                        Align(
+                          alignment: Alignment.topLeft,
+                          child: SvgPicture.asset(AssetsManager.bookmark),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+
+            ],
     ),
             // Column(
             // children: [
@@ -87,6 +114,7 @@ class Popular extends StatelessWidget {
       //   viewportFraction: 0.8,
       //   aspectRatio: 16 / 9,
       // ),
-        )]);
+        ),
+      ]);
   }
 }
