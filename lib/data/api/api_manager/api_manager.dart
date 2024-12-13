@@ -1,8 +1,7 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:movies_app/data/model/popular_movies/popular_response.dart';
 import 'package:movies_app/sealed_result.dart';
-import '../../model/popular_movies/popular_movie.dart';
+import '../../model/popular/popular_response.dart';
 
 class ApiManager{
   //https://api.themoviedb.org/3/movie/popular
@@ -23,15 +22,11 @@ static Future<CheckData<PopularResponse>> getPopularMovies()async{
     print(serverResponse.statusCode);
     //print(popularMovies.success);
     if (serverResponse.statusCode == 200) {
-      print('osama');
-
       return Success(data: popularResponse);
     } else {
-      print('youssef');
       return ServerError(message: popularResponse.message??'something wrong', code: popularResponse.statusCode??0);
     }
   }on Exception catch(e){
-    print('mahmoud');
     return Error(exception: e);
   }
 }

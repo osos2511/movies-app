@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/data/api/api_manager/api_manager.dart';
-import 'package:movies_app/data/model/popular_movies/popular_movie.dart';
-import 'package:movies_app/data/model/popular_movies/popular_response.dart';
 import 'package:movies_app/sealed_result.dart';
+import '../../../../../data/model/popular/popular_response.dart';
 
 class PopularViewModel extends ChangeNotifier{
  PopularResponse?popularResponse;
