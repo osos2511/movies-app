@@ -11,7 +11,7 @@ class MovieRecomended extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  EdgeInsets.all(8.0),
+      padding:  const EdgeInsets.all(8.0),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15),
@@ -27,7 +27,7 @@ class MovieRecomended extends StatelessWidget {
                 width: 96.87.w,
                 child: Stack(
                   children: [
-                    Positioned.fill(
+                    const Positioned.fill(
                       child: Image(
                         image: AssetImage(AssetsManager.recomended),
                         fit: BoxFit.cover,
@@ -41,7 +41,7 @@ class MovieRecomended extends StatelessWidget {
               ),
             ),
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 borderRadius: BorderRadius.only(
                   bottomRight: Radius.circular(4),
                   bottomLeft: Radius.circular(4),
