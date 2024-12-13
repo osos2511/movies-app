@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/screens/tabs/home_tab/popular/view/popular_view.dart';
-import 'package:movies_app/screens/tabs/home_tab/popular/widgets/popular.dart';
 
 import 'new_releases/widgets/new_releases.dart';
 
